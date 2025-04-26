@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../lib/main.dart'; // Corrected import path
+import 'package:control_gastos/main.dart'; // Corrected import path
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

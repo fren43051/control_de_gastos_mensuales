@@ -1,7 +1,7 @@
 import 'package:path/path.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import '../models/expense.dart';
-import 'database_factory_provider.dart' hide databaseFactory; // Import types and hide conflicting getter
+// Import types and hide conflicting getter
 import 'database_factory_provider.dart' as db_provider; // Import again to use the getter with prefix
 
 class DatabaseHelper {

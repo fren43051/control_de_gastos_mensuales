@@ -1,16 +1,16 @@
-import 'dart:io'; // Para detectar la plataforma
+import 'dart:io';
+import 'package:flutter/foundation.dart'; // Para usar kIsWeb
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart'; // FFI para escritorio
 import 'screens/home_screen.dart';
-import '../database/database_factory_provider.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Inicialización de sqflite para escritorio
-  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+  // Inicialización de sqflite solo para escritorio
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     sqfliteFfiInit();
   }
 
