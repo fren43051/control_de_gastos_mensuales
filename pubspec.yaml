@@ -15,6 +15,13 @@ dependencies:
   intl: ^0.20.2
   cupertino_icons: ^1.0.2
   vector_math: ^2.1.4
+  # Nuevas dependencias
+  pdf: ^3.10.7
+  path_provider: ^2.1.2
+  permission_handler: ^11.2.0
+  open_file: ^3.3.2
+  fl_chart: ^0.66.0
+  share_plus: ^7.2.1
 
 dev_dependencies:
   flutter_test:
@@ -23,7 +30,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  
+
   fonts:
     - family: Roboto
       fonts:

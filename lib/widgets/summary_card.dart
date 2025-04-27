@@ -1,11 +1,17 @@
+// lib/widgets/summary_card.dart
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class SummaryCard extends StatelessWidget {
   final double totalExpenses;
+  final DateTime? lastExpenseDate;
+  final String? mostSpentCategory;
 
   const SummaryCard({
     super.key,
     required this.totalExpenses,
+    this.lastExpenseDate,
+    this.mostSpentCategory,
   });
 
   @override
@@ -18,7 +24,7 @@ class SummaryCard extends StatelessWidget {
         gradient: LinearGradient(
           colors: [
             Theme.of(context).primaryColor,
-            Theme.of(context).primaryColor.withAlpha((255 * 0.7).round()), // Use withAlpha
+            Theme.of(context).primaryColor.withAlpha((255 * 0.7).round()),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -26,7 +32,7 @@ class SummaryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withAlpha((255 * 0.5).round()), // Use withAlpha
+            color: Colors.grey.withAlpha((255 * 0.5).round()),
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, 3),
@@ -44,7 +50,7 @@ class SummaryCard extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 8),
+          const Divider(color: Colors.white30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -66,6 +72,17 @@ class SummaryCard extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 12),
+          if (lastExpenseDate != null)
+            Text(
+              'Último gasto: ${DateFormat('dd/MM/yyyy').format(lastExpenseDate!)}',
+              style: const TextStyle(color: Colors.white70),
+            ),
+          if (mostSpentCategory != null)
+            Text(
+              'Categoría principal: $mostSpentCategory',
+              style: const TextStyle(color: Colors.white70),
+            ),
         ],
       ),
     );
