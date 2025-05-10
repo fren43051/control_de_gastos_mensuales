@@ -1,4 +1,3 @@
-// lib/screens/home_screen.dart
 import 'package:flutter/material.dart';
 import '../database/database_helper.dart';
 import '../models/expense.dart';
@@ -139,17 +138,37 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
 
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(Icons.list_alt, size: 20),
-                      SizedBox(width: 8),
-                      Text(
-                        'Transacciones Recientes',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      const Row(
+                        children: [
+                          Icon(Icons.list_alt, size: 20),
+                          SizedBox(width: 8),
+                          Text(
+                            'Transacciones Recientes',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      // Botón para agregar nuevo gasto integrado en la interfaz
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const ExpenseForm()),
+                          ).then((_) => _refreshExpenses());
+                        },
+                        icon: const Icon(Icons.add, size: 18),
+                        label: const Text('Nuevo'),
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
+                          visualDensity: VisualDensity.compact,
                         ),
                       ),
                     ],
@@ -167,16 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ExpenseForm()),
-          ).then((_) => _refreshExpenses());
-        },
-        label: const Text('Nuevo Gasto'),
-        icon: const Icon(Icons.add),
-      ),
+      // Se elimina el FloatingActionButton para que no obstruya la vista
     );
   }
 }

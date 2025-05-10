@@ -68,10 +68,19 @@ class _ExpenseFormState extends State<ExpenseForm> {
   Future<void> _saveExpense() async {
     if (_formKey.currentState!.validate()) {
       final dbHelper = DatabaseHelper();
-      
+
+      // Format the description to ensure first letter is capitalized
+      String formattedDescription = _descriptionController.text;
+      if (formattedDescription.isNotEmpty) {
+        // If non-empty, make the first character uppercase and the rest as they were
+        formattedDescription = formattedDescription[0].toUpperCase() +
+                            (formattedDescription.length > 1 ?
+                             formattedDescription.substring(1) : '');
+      }
+
       final expense = Expense(
         id: widget.expense?.id,
-        description: _descriptionController.text,
+        description: formattedDescription, // Use formatted description
         category: _selectedCategory,
         amount: double.parse(_amountController.text),
         date: _selectedDate,
@@ -138,6 +147,12 @@ class _ExpenseFormState extends State<ExpenseForm> {
                       });
                     }
                   },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Por favor seleccione una categoría';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
@@ -147,7 +162,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.attach_money),
                   ),
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  keyboardType: const TextInputType.numberWithOptions(decimal: true),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Por favor ingrese un monto';

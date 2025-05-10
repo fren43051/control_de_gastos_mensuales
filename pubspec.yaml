@@ -24,12 +24,26 @@ dependencies:
   share_plus: ^7.2.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
 
+# Configuración del icono de la aplicación
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: false
+  image_path: "assets/icon/app_icon.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#2E7D32"  # Verde que coincide con tema
+  adaptive_icon_foreground: "assets/icon/app_icon_foreground.png"
+
 flutter:
   uses-material-design: true
+
+  # Añadir la carpeta de assets para los iconos
+  assets:
+    - assets/icon/
 
   fonts:
     - family: Roboto

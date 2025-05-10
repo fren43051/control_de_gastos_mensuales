@@ -40,51 +40,56 @@ class ExpenseList extends StatelessWidget {
       );
     }
 
-    return ListView.builder(
-      itemCount: expenses.length,
-      itemBuilder: (context, index) {
-        final expense = expenses[index];
-        return ExpenseCard(
-          expense: expense,
-          onEdit: () async {
-            // Navegar a la pantalla de edición
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ExpenseForm(expense: expense),
-              ),
-            ).then((_) => refreshExpenses());
-          },
-          onDelete: () async {
-            // Mostrar diálogo de confirmación
-            showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                title: const Text('Confirmar eliminación'),
-                content: const Text('¿Está seguro de que desea eliminar este gasto?'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text('Cancelar'),
-                  ),
-                  TextButton(
-                    onPressed: () async {
-                      final dbHelper = DatabaseHelper();
-                      await dbHelper.deleteExpense(expense.id!);
-                      Navigator.pop(context);
-                      refreshExpenses();
-                    },
-                    child: const Text(
-                      'Eliminar',
-                      style: TextStyle(color: Colors.red),
+    // Envuelve el ListView con un Scrollbar
+    return Scrollbar(
+      thickness: 6,
+      radius: const Radius.circular(8),
+      thumbVisibility: false, // Solo se muestra al desplazarse
+      interactive: true,      // Permite arrastrar la barra de desplazamiento
+      child: ListView.builder(
+        itemCount: expenses.length,
+        itemBuilder: (context, index) {
+          final expense = expenses[index];
+          return ExpenseCard(
+            expense: expense,
+            onEdit: () async {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ExpenseForm(expense: expense),
+                ),
+              ).then((_) => refreshExpenses());
+            },
+            onDelete: () async {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('Confirmar eliminación'),
+                  content: const Text('¿Está seguro de que desea eliminar este gasto?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('Cancelar'),
                     ),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      },
+                    TextButton(
+                      onPressed: () async {
+                        final dbHelper = DatabaseHelper();
+                        await dbHelper.deleteExpense(expense.id!);
+                        Navigator.pop(context);
+                        refreshExpenses();
+                      },
+                      child: const Text(
+                        'Eliminar',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

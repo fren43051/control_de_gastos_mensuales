@@ -1,4 +1,3 @@
-// lib/widgets/summary_card.dart
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -23,8 +22,8 @@ class SummaryCard extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Theme.of(context).primaryColor,
-            Theme.of(context).primaryColor.withAlpha((255 * 0.7).round()),
+            const Color(0xFF2E7D32), // Verde principal
+            const Color(0xFF81C784), // Verde secundario
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -32,10 +31,10 @@ class SummaryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withAlpha((255 * 0.5).round()),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
+            color: Colors.black26,
+            spreadRadius: 1,
+            blurRadius: 4,
+            offset: const Offset(0, 2),
           ),
         ],
       ),

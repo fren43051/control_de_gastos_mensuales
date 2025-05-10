@@ -1,8 +1,8 @@
 import 'dart:io';
-import 'package:flutter/foundation.dart'; // Para usar kIsWeb
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart'; // FFI para escritorio
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'screens/home_screen.dart';
 
 
@@ -33,32 +33,43 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
+          seedColor: const Color(0xFF2E7D32), // Verde que transmite estabilidad financiera
+          primary: const Color(0xFF2E7D32),
+          secondary: const Color(0xFF81C784),
+          background: Colors.grey[50],
           brightness: Brightness.light,
         ),
         useMaterial3: true,
         fontFamily: 'Roboto',
         appBarTheme: const AppBarTheme(
           centerTitle: true,
-          elevation: 0,
-          backgroundColor: Colors.deepPurple,
+          elevation: 2,
+          backgroundColor: Color(0xFF2E7D32),
           foregroundColor: Colors.white,
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Color(0xFF2E7D32),
           foregroundColor: Colors.white,
+        ),
+        cardTheme: CardTheme(
+          elevation: 3,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       darkTheme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
+          seedColor: const Color(0xFF2E7D32),
+          primary: const Color(0xFF2E7D32),
+          secondary: const Color(0xFF81C784),
           brightness: Brightness.dark,
         ),
         useMaterial3: true,
         fontFamily: 'Roboto',
         appBarTheme: const AppBarTheme(
           centerTitle: true,
-          elevation: 0,
+          elevation: 2,
+          backgroundColor: Color(0xFF2E7D32),
+          foregroundColor: Colors.white,
         ),
       ),
       themeMode: ThemeMode.system,
