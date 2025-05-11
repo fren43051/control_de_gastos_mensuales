@@ -91,11 +91,12 @@ lib/
 
 ## 👥 Contribuidores
 
-- Nelson Enrique Reyes (desarrollador principal)  
-- [Nombre del integrante 1]  
-- [Nombre del integrante 2]  
-- [Nombre del integrante 3]  
-- [Nombre del integrante 4]  
+- Karla María Bermúdez Arriaza   
+- Valeria Nicole Arana Rodriguez  
+- Kelvin Ernesto Sibrian 0.0   
+- Herson Israel Arce Pérez
+- Luis Miguel Alvarenga Jacobo
+- Nelson Enrique Reyes Fabian
 
 ---
 
