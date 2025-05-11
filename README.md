@@ -56,7 +56,7 @@ lib/
     ├── expense_card.dart      // Widget para mostrar un gasto individual
     └── summary_card.dart      // Widget para mostrar el resumen de gastos
 
-___
+---
 Instalación
 
 Clona este repositorio
