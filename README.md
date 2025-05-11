@@ -100,10 +100,9 @@ lib/
 
 ---
 
-## 📄 Licencia
+## Licencia
 
-Este proyecto está licenciado bajo [tipo de licencia].  
-Consulta el archivo `LICENSE` para más detalles.
+Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
 
 ---
 
