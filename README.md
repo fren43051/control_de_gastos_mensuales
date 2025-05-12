@@ -85,7 +85,9 @@ lib/
 
 ## 📸 Capturas de pantalla
 
-> [Aquí se insertarían capturas de pantalla de la aplicación]
+### 🟢 Pantalla Principal
+
+![Pantalla Principal](https://drive.google.com/uc?export=view&id=1XAI4pMf5h-Wg3w4vQl_q4-8S7i66xxKS)
 
 ---
 
