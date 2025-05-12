@@ -86,10 +86,11 @@ lib/
 ## 📸 Capturas de pantalla
 
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1XAI4pMf5h-Wg3w4vQl_q4-8S7i66xxKS" width="30%" />
-  <img src="https://drive.google.com/uc?export=view&id=1iXC315hVCz8gPh1f0gEjrSjIf3g7Oc8" width="30%" />
-  <img src="ENLACE_3" width="30%" />
+  <img src="https://drive.google.com/uc?export=view&id=1XAI4pMf5h-Wg3w4vQl_q4-8S7i66xxKS" width="30%" alt="Pantalla principal" />
+  <img src="https://drive.google.com/uc?export=view&id=1iXC315hVCz8gPh1f0gEjrSjIf3g7Oc8J" width="30%" alt="Pantalla calendario" />
+  <img src="ENLACE_3" width="30%" alt="Tercera pantalla" />
 </p>
+
 
 
 ---
