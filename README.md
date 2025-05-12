@@ -87,9 +87,10 @@ lib/
 
 <p align="center">
   <img src="https://drive.google.com/uc?export=view&id=1XAI4pMf5h-Wg3w4vQl_q4-8S7i66xxKS" width="30%" alt="Pantalla principal" />
-  <img src="https://drive.google.com/uc?export=view&id=1iXC315hVCz8gPh1f0gEjrSjIf3g7Oc8J" width="30%" alt="Pantalla calendario" />
-  <img src="ENLACE_3" width="30%" alt="Tercera pantalla" />
+  <img src="https://drive.google.com/uc?export=view&id=1iXC315hVCz8gPh1f0gEjrSjIf3g7Oc8J" width="30%" alt="Calendario de fecha" />
+  <img src="https://drive.google.com/uc?export=view&id=1S_5aILieNiyvIvawomX_I0BR5CAFn8SG" width="30%" alt="Formulario de gasto" />
 </p>
+
 
 
 
