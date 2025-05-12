@@ -102,7 +102,7 @@ lib/
 
 - Karla María Bermúdez Arriaza   
 - Valeria Nicole Arana Rodriguez  
-- Kelvin Ernesto Sibrian 0.0   
+- Kelvin Ernesto Sibrian 0   
 - Herson Israel Arce Pérez
 - Luis Miguel Alvarenga Jacobo
 - Nelson Enrique Reyes Fabian
