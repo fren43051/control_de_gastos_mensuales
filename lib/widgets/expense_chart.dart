@@ -15,7 +15,7 @@ class ExpenseChart extends StatelessWidget {
       categoryTotals[expense.category] = (categoryTotals[expense.category] ?? 0) + expense.amount;
     }
 
-    // Calculate total for percentages
+    // Calcular el total para los porcentajes
     final double totalExpense = expenses.fold(0.0, (sum, expense) => sum + expense.amount);
 
     // Preparar datos para el gráfico - mostrar todos los porcentajes
@@ -59,7 +59,7 @@ class ExpenseChart extends StatelessWidget {
                 sectionsSpace: 2,
                 pieTouchData: PieTouchData(
                   touchCallback: (FlTouchEvent event, pieTouchResponse) {
-                    // Touch interaction
+                    // Interacción táctil
                   },
                 ),
               ),

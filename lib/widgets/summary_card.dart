@@ -15,6 +15,9 @@ class SummaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Determina si el tema actual es oscuro para ajustar los colores dinámicamente.
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -22,8 +25,14 @@ class SummaryCard extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            const Color(0xFF2E7D32), // Verde principal
-            const Color(0xFF81C784), // Verde secundario
+            // Color primario del gradiente, adaptado al tema.
+            isDarkMode
+                ? const Color(0xFF1E5128)  // Verde oscuro para modo oscuro.
+                : const Color(0xFF2E7D32),  // Verde normal para modo claro.
+            // Color secundario del gradiente, adaptado al tema.
+            isDarkMode
+                ? const Color(0xFF2E7D32)  // Verde medio para modo oscuro.
+                : const Color(0xFF81C784),  // Verde claro para modo claro.
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -31,7 +40,10 @@ class SummaryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black26,
+            // Color de la sombra adaptado al tema.
+            color: isDarkMode
+                ? Colors.black26 // Sombra más visible en modo oscuro.
+                : Colors.black12, // Sombra más sutil en modo claro.
             spreadRadius: 1,
             blurRadius: 4,
             offset: const Offset(0, 2),
@@ -41,29 +53,36 @@ class SummaryCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Resumen de Gastos',
             style: TextStyle(
+              // El color del texto del título es blanco en ambos modos para contrastar con el gradiente.
               color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
           ),
-          const Divider(color: Colors.white30),
+          Divider(
+            // Color del divisor adaptado al tema para una mejor integración visual.
+            color: isDarkMode ? Colors.white24 : Colors.white30,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
+              Text(
                 'Total Gastado:',
                 style: TextStyle(
+                  // Color del texto "Total Gastado" es blanco en ambos modos.
                   color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
+                // Formatea el total de gastos a dos decimales.
                 '\$${totalExpenses.toStringAsFixed(2)}',
-                style: const TextStyle(
+                style: TextStyle(
+                  // Color del monto total es blanco en ambos modos.
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -71,16 +90,24 @@ class SummaryCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 12), // Espacio vertical.
+          // Muestra la fecha del último gasto si está disponible.
           if (lastExpenseDate != null)
             Text(
               'Último gasto: ${DateFormat('dd/MM/yyyy').format(lastExpenseDate!)}',
-              style: const TextStyle(color: Colors.white70),
+              style: TextStyle(
+                // Color del texto de "Último gasto" es blanco semitransparente en ambos modos.
+                color: Colors.white70,
+              ),
             ),
+          // Muestra la categoría con mayor gasto si está disponible.
           if (mostSpentCategory != null)
             Text(
               'Categoría principal: $mostSpentCategory',
-              style: const TextStyle(color: Colors.white70),
+              style: TextStyle(
+                // Color del texto de "Categoría principal" es blanco semitransparente en ambos modos.
+                color: Colors.white70,
+              ),
             ),
         ],
       ),

@@ -69,10 +69,10 @@ class _ExpenseFormState extends State<ExpenseForm> {
     if (_formKey.currentState!.validate()) {
       final dbHelper = DatabaseHelper();
 
-      // Format the description to ensure first letter is capitalized
+      // Formatear la descripción para asegurar que la primera letra esté en mayúscula
       String formattedDescription = _descriptionController.text;
       if (formattedDescription.isNotEmpty) {
-        // If non-empty, make the first character uppercase and the rest as they were
+        // Si no está vacío, poner la primera letra en mayúscula y el resto como estaba
         formattedDescription = formattedDescription[0].toUpperCase() +
                             (formattedDescription.length > 1 ?
                              formattedDescription.substring(1) : '');

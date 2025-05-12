@@ -54,7 +54,7 @@ class ReportService {
             pw.TableHelper.fromTextArray(
               headers: ['Categoría', 'Monto Total', 'Porcentaje'],
               data: categoryTotals.entries.map((entry) {
-                final percentage = (entry.value / totalAmount * 100).toStringAsFixed(1) + '%';
+                final percentage = '${(entry.value / totalAmount * 100).toStringAsFixed(1)}%';
                 return [entry.key, '\$${entry.value.toStringAsFixed(2)}', percentage];
               }).toList(),
               headerStyle: pw.TextStyle(font: ttf, fontWeight: pw.FontWeight.bold),

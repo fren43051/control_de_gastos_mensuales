@@ -5,6 +5,7 @@ import '../database/database_helper.dart';
 import '../models/expense.dart';
 import '../services/report_service.dart';
 
+// Pantalla para generar informes de gastos filtrados por fecha y categoría
 class ReportScreen extends StatefulWidget {
   const ReportScreen({super.key});
 
@@ -13,12 +14,20 @@ class ReportScreen extends StatefulWidget {
 }
 
 class _ReportScreenState extends State<ReportScreen> {
+  // Helper para acceder a la base de datos
   final DatabaseHelper _dbHelper = DatabaseHelper();
+
+  // Valores predeterminados para el rango de fechas (últimos 30 días)
   DateTime _startDate = DateTime.now().subtract(const Duration(days: 30));
   DateTime _endDate = DateTime.now();
+
+  // Categoría seleccionada para filtrar (null significa todas las categorías)
   String? _selectedCategory;
+
+  // Indicador de estado de generación del informe
   bool _isGenerating = false;
 
+  // Lista de categorías disponibles para el filtro
   final List<String> _categories = [
     'Todas',
     'Comida',
@@ -31,6 +40,7 @@ class _ReportScreenState extends State<ReportScreen> {
     'Otros'
   ];
 
+  // Muestra un selector de fecha y actualiza la fecha inicial o final
   Future<void> _selectDate(BuildContext context, bool isStartDate) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -50,6 +60,7 @@ class _ReportScreenState extends State<ReportScreen> {
     }
   }
 
+  // Genera el informe PDF con los filtros aplicados
   Future<void> _generateReport() async {
     setState(() {
       _isGenerating = true;
@@ -89,6 +100,7 @@ class _ReportScreenState extends State<ReportScreen> {
     }
   }
 
+  // Muestra un menú con opciones para ver o compartir el informe generado
   void _showReportOptions(File file) {
     showModalBottomSheet(
       context: context,
@@ -127,6 +139,7 @@ class _ReportScreenState extends State<ReportScreen> {
     );
   }
 
+  // Muestra un diálogo con un mensaje de error
   void _showErrorDialog(String message) {
     showDialog(
       context: context,
@@ -154,6 +167,7 @@ class _ReportScreenState extends State<ReportScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            // Tarjeta con opciones de filtrado
             Card(
               elevation: 4,
               child: Padding(
@@ -169,6 +183,7 @@ class _ReportScreenState extends State<ReportScreen> {
                       ),
                     ),
                     const SizedBox(height: 16),
+                    // Selectores de fecha (desde/hasta)
                     Row(
                       children: [
                         Expanded(
@@ -205,6 +220,7 @@ class _ReportScreenState extends State<ReportScreen> {
                       ],
                     ),
                     const SizedBox(height: 16),
+                    // Selector de categoría
                     DropdownButtonFormField<String>(
                       value: _selectedCategory ?? 'Todas',
                       decoration: const InputDecoration(
@@ -231,6 +247,7 @@ class _ReportScreenState extends State<ReportScreen> {
               ),
             ),
             const SizedBox(height: 24),
+            // Botón para generar el informe
             ElevatedButton(
               onPressed: _isGenerating ? null : _generateReport,
               style: ElevatedButton.styleFrom(

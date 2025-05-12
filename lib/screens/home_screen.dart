@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
         lastDate = expenses.reduce((a, b) => a.date.isAfter(b.date) ? a : b).date;
       }
 
-      if (!mounted) return; // Check if the widget is still mounted
+      if (!mounted) return; // Verificar si el widget sigue montado
       setState(() {
         _expenses = expenses;
         _totalExpenses = total;
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
         _isLoading = false;
       });
     } catch (e) {
-      if (!mounted) return; // Check if the widget is still mounted
+      if (!mounted) return; // Verificar si el widget sigue montado
       setState(() {
         _isLoading = false;
       });

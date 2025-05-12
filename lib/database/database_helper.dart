@@ -1,8 +1,8 @@
 import 'package:path/path.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import '../models/expense.dart';
-// Import types and hide conflicting getter
-import 'database_factory_provider.dart' as db_provider; // Import again to use the getter with prefix
+// Importar tipos y ocultar getter conflictivo
+import 'database_factory_provider.dart' as db_provider; // Importar de nuevo para usar el getter con prefijo
 
 class DatabaseHelper {
   static final DatabaseHelper _instance = DatabaseHelper._internal();
@@ -17,11 +17,11 @@ class DatabaseHelper {
     if (_database != null) return _database!;
 
     final path = join(
-      await db_provider.databaseFactory.getDatabasesPath(), // Use prefixed databaseFactory from provider
+      await db_provider.databaseFactory.getDatabasesPath(), // Usar databaseFactory con prefijo desde el proveedor
       'expenses_database.db',
     );
 
-    _database = await db_provider.databaseFactory.openDatabase( // Use prefixed databaseFactory from provider
+    _database = await db_provider.databaseFactory.openDatabase( // Usar databaseFactory con prefijo desde el proveedor
       path,
       options: OpenDatabaseOptions(
         version: 1,
