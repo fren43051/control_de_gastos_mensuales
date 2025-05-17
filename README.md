@@ -105,7 +105,7 @@ lib/
 - Kelvin Ernesto Sibrian 0   
 - Herson Israel Arce Pérez
 - Luis Miguel Alvarenga Jacobo
-- Nelson Enrique Reyes Fabian
+- Nelson Enrique Reyes Fabián
 
 ---
 
